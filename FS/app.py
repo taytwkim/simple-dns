@@ -1,11 +1,13 @@
 from flask import Flask, request, jsonify
 from socket import *
 import requests
+import logging
 
 FS_HOST = "0.0.0.0"
 FS_PORT = 9090
 
 app = Flask(__name__)
+app.logger.setLevel(logging.INFO)
 
 def fib(n):
     if n == 1:
