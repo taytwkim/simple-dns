@@ -14,6 +14,8 @@ Setup instructions are included below.
 
 This project was part of the Data Communication and Networks course (Spring 2025) at NYU Courant, taught by Professor Jean-Claude Franchitti.
 
+---
+
 ## Set Up Instructions
 
 1. **Run all containers**
