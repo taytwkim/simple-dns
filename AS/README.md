@@ -9,7 +9,7 @@ Our AS has two responsibilities:
 
 The AS listens for UDP messages on port `53533`. We use Python’s built-in `socket` library to process UDP messages.
 
-Our AS stores DNS records in a local file called `records.txt`.
+Our AS stores DNS records in a local file named `records.txt`. However, since the application runs inside a container, these records will not persist after the container is stopped and removed.
 
 ## Testing AS Standalone (Without US or FS)
 
@@ -23,7 +23,6 @@ docker build -t as-app .
 docker run --rm -p 53533:53533/udp as-app
 ```
 * `--rm` automatically deletes the container after it exits (e.g., when you press `Ctrl+C`)
-* `PYTHONUNBUFFERED=1` ensures Python logs appear immediately (no buffering)
 
 ### Open a new terminal and send requests to AS
 

@@ -41,4 +41,4 @@ docker run --rm -p 8080:8080 us-app
 curl "http://localhost:8080/fibonacci?hostname=fibonacci.com&fs_port=9090&number=7&as_ip=host.docker.internal&as_port=53533"
 ```
 
-* `host.docker.internal` is a special DNS name that allows Docker containers to access services running on the host machine. It's used here so that the FS and US containers can communicate with AS running on the host.
+* `host.docker.internal` is a special DNS name that allows Docker containers to access services running on the host machine. It's used here so that the FS and US containers can communicate with AS running on the host. When using `docker-compose`, this is no longer necessary since all services run in the same Docker network and can refer to each other by container name.
