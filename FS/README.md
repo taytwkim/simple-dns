@@ -13,9 +13,9 @@ FS exposes a `PUT` endpoint at `/register`, which accepts requests to register i
 ```json
 {
   "hostname": "fibonacci.com",
-  "ip": "172.18.0.2",          // IP address of FS
-  "as_ip": "10.9.10.2",        // IP address of AS
-  "as_port": "30001"           // Port number of AS
+  "ip": "172.18.0.2",
+  "as_ip": "10.9.10.2",
+  "as_port": "30001"
 }
 ```
 
@@ -75,8 +75,7 @@ curl -X PUT \
   http://localhost:9090/register
 ```
 
-* `host.docker.internal` is a special DNS name that allows a Docker container to communicate with the host machine. It’s useful when a container needs to access a service running on the host. In this assignment, since the AS container is bound to `localhost:53533`, FS can use `host.docker.internal:53533` to send registration requests to it.
-
+* `host.docker.internal` is a special DNS name that allows a Docker container to communicate with the host machine. It’s useful when a container needs to access a service running on the host — like FS sending a registration request to AS running at `localhost:53533`. When using `docker-compose`, this is no longer necessary since all services run in the same Docker network and can refer to each other by container name.
 
 * Test Fibonacci Result
 ```bash

@@ -20,7 +20,7 @@ docker build -t as-app .
 
 ### Run Docker container
 ```bash
-docker run --rm -e PYTHONUNBUFFERED=1 -p 53533:53533/udp as-app
+docker run --rm -p 53533:53533/udp as-app
 ```
 * `--rm` automatically deletes the container after it exits (e.g., when you press `Ctrl+C`)
 * `PYTHONUNBUFFERED=1` ensures Python logs appear immediately (no buffering)
