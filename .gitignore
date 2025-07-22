@@ -56,4 +56,3 @@ instance/
 # Docker
 *.log
 Dockerfile.*
-docker-compose*.yml
