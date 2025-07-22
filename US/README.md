@@ -11,19 +11,19 @@ Once resolved, it forwards the Fibonacci request to the Fibonacci Server (FS) us
 ## Testing US (+ AS and FS)
 
 1. Run the AS container
-```bash!
+```bash
 docker build -t as-app .
 docker run --rm -p 53533:53533/udp as-app
 ```
 
 2. Run the FS container
-```bash!
+```bash
 docker build -t fs-app .
 docker run --rm -p 9090:9090 fs-app
 ```
 
 3. Register FS to AS
-```bash!
+```bash
 curl -X PUT \
   -H "Content-Type: application/json" \
   -d '{"hostname":"fibonacci.com","ip":"host.docker.internal","as_ip":"host.docker.internal","as_port":"53533"}' \
@@ -31,13 +31,13 @@ curl -X PUT \
 ```
 
 4. Run the US container
-```bash!
+```bash
 docker build -t us-app .
 docker run --rm -p 8080:8080 us-app
 ```
 
 5. Send request to US
-```bash!
+```bash
 curl "http://localhost:8080/fibonacci?hostname=fibonacci.com&fs_port=9090&number=7&as_ip=host.docker.internal&as_port=53533"
 ```
 

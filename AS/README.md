@@ -14,12 +14,12 @@ Our AS stores DNS records in a local file called `records.txt`.
 ## Testing AS Standalone (Without US or FS)
 
 ### Build Docker image
-```bash!
+```bash
 docker build -t as-app .
 ```
 
 ### Run Docker container
-```bash!
+```bash
 docker run --rm -e PYTHONUNBUFFERED=1 -p 53533:53533/udp as-app
 ```
 * `--rm` automatically deletes the container after it exits (e.g., when you press `Ctrl+C`)
@@ -28,17 +28,17 @@ docker run --rm -e PYTHONUNBUFFERED=1 -p 53533:53533/udp as-app
 ### Open a new terminal and send requests to AS
 
 Install netcat if not already installed.
-```bash!
+```bash
 # macOS
 brew install netcat
 ```
 
 Test record registration
-```bash!
+```bash
 echo -e "TYPE=A\nNAME=fibonacci.com\nVALUE=172.18.0.2\nTTL=10" | nc -u -w1 localhost 53533
 ```
 
 Test DNS query
-```bash!
+```bash
 echo -e "TYPE=A\nNAME=fibonacci.com" | nc -u -w1 localhost 53533
 ```
