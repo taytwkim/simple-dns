@@ -16,7 +16,7 @@ This project was part of the Data Communication and Networks course (Spring 2025
 
 ---
 
-## Set Up Instructions
+## Getting Started
 
 1. **Run all containers**
 ```bash
